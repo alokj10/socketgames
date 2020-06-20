@@ -1,0 +1,28 @@
+.main-container {
+    margin: 1%;
+}
+.token-home {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.gang-row {
+    height: 10%;
+}
+.gang-col {
+    /* width: 77px; */
+    /* height: 44px; */
+}
+.token {
+    padding: 10%;
+    margin-top: 5%;
+}
+.cell {
+    text-align: center;
+    border: 1px solid #cccccc;
+    padding: 2%;
+}
+.inner-content {
+    /* padding-top: 4%; */
+    text-align: center;
+}
