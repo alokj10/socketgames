@@ -1,4 +1,5 @@
 import React from 'react';
+import RoomDetails from './RoomDetails';
 
 const RoomsList = (props) => {
     let { model } = props;
@@ -16,10 +17,11 @@ const RoomsList = (props) => {
         )
     }
 
+    console.log('props.rooms', props.rooms);
     return (
             <div className="card">
                 <div className="card-header">
-                    <h3>Rooms</h3>
+                    <h3>Join Room</h3>
                 </div>
                 <div className="card-body">
             
@@ -36,10 +38,15 @@ const RoomsList = (props) => {
                         {props.rooms && props.rooms.length > 0 &&
                             props.rooms.map((room, i) => {
                                 return (
-                                    <li className="list-group-item" onClick={()=>handleRoomNameChange(room.roomName)}>
+                                    <li key={i}
+                                        className={`list-group-item ${props.selectedRoomName===room.roomName ? 'bg-success': ''}`}
+                                        onClick={()=>handleRoomNameChange(room.roomName)}>
                                         <div className="row">
                                             <div className="col-md-4">
                                                 {room.roomName}
+                                            </div>
+                                            <div className="col-md-8">
+                                                <RoomDetails users={room.users} />
                                             </div>
                                         </div>
                                     </li>

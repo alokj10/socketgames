@@ -7,8 +7,8 @@ export const CreateRoom = (model) => {
     socket.emit('create-room', model);
 }
 
-export const JoinRoom = (userName, roomName) => {
-
+export const JoinRoombyName = (model) => {
+    socket.emit('join-room', model);
 }
 
 export const SubscribeToGameServer = (callback) => {

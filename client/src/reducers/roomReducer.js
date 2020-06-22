@@ -1,3 +1,12 @@
+const initialState = {
+    roomModel: {
+        name: '', roomName: ''
+    },
+    joinRoomModel: {
+        name: '', roomName: ''
+    },
+    all_rooms: []
+}
 export default (state = {}, action) => {
     switch(action.type) {
         case 'ROOMS_FETCHED': {
@@ -10,15 +19,24 @@ export default (state = {}, action) => {
         }
         
         case 'ROOM_FIELD_CHANGED': {
+            console.log('reducer create room field change', action.payload);
             return {
                 ...state,
-                roomModel: action.payload
+                roomModel: {
+                    ...state.roomModel,
+                    roomName: action.payload.roomName,
+                    name: action.payload.name
+                }
             }
         }
         case 'JOIN_ROOM_FIELD_CHANGED': {
             return {
                 ...state,
-                joinRoomModel: action.payload
+                joinRoomModel: {
+                    ...state.joinRoomModel,
+                    roomName: action.payload.roomName,
+                    name: action.payload.name
+                }
             }
         }
         case 'ROOM_CREATED': {
@@ -35,13 +53,15 @@ export default (state = {}, action) => {
                 ...state
             }
         }
-
-        default: {
+        case 'VALIDATION_ERRORS': {
             return {
                 ...state,
-                roomModel: {},
-                joinRoomModel: {}
-            };
+                validation_errors: action.payload
+            }
+        }
+
+        default: {
+            return initialState;
         }
     }
 }

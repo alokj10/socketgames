@@ -16,14 +16,14 @@ const AddRoom = (props) => {
     return (
         <div className="card">
             <div className="card-header">
-                Add Room
+                <h3>Add Room</h3>
             </div>
             <div className="card-body">
                 <form>
                     <div className="form-group">
                         <label>My Name</label>
                         <input type="text" className="form-control" 
-                            value={model.name}
+                            value={model.name || ''}
                             onChange={handleNameChange}
                             placeholder="Enter player name" />
                         <small className="form-text text-muted">Please enter your name (displayed as player name)</small>
@@ -31,7 +31,7 @@ const AddRoom = (props) => {
                     <div className="form-group">
                         <label>Room Name</label>
                         <input type="text" className="form-control"
-                            value={model.roomName}
+                            value={model.roomName || ''}
                             onChange={handleRoomNameChange}
                             placeholder="Enter Room Name" />
                     </div>
